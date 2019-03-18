@@ -4,18 +4,27 @@
 #
 Name     : R-phylobase
 Version  : 0.8.6
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/phylobase_0.8.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/phylobase_0.8.6.tar.gz
 Summary  : Base Package for Phylogenetic Structures and Comparative Data
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-phylobase-lib = %{version}-%{release}
-Requires: R-RNeXML
-Requires: R-ade4
-Requires: R-rncl
+Requires: R-cli
+Requires: R-dplyr
+Requires: R-highr
+Requires: R-hms
+Requires: R-prettyunits
+Requires: R-progress
 BuildRequires : R-RNeXML
 BuildRequires : R-ade4
+BuildRequires : R-cli
+BuildRequires : R-dplyr
+BuildRequires : R-highr
+BuildRequires : R-hms
+BuildRequires : R-prettyunits
+BuildRequires : R-progress
 BuildRequires : R-rncl
 BuildRequires : buildreq-R
 BuildRequires : texlive
@@ -39,10 +48,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549146518
+export SOURCE_DATE_EPOCH=1552877590
 
 %install
-export SOURCE_DATE_EPOCH=1549146518
+export SOURCE_DATE_EPOCH=1552877590
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -78,8 +87,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library phylobase|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  phylobase || :
 
 
 %files
@@ -112,7 +120,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/phylobase/help/phylobase.rdx
 /usr/lib64/R/library/phylobase/html/00Index.html
 /usr/lib64/R/library/phylobase/html/R.css
-/usr/lib64/R/library/phylobase/libs/symbols.rds
 /usr/lib64/R/library/phylobase/nexmlfiles/comp_analysis.xml
 /usr/lib64/R/library/phylobase/nexusfiles/ExContData.Rdata
 /usr/lib64/R/library/phylobase/nexusfiles/MultiLineTrees.nex
@@ -133,6 +140,31 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/phylobase/nexusfiles/treeWithPolyExcludedData.nex
 /usr/lib64/R/library/phylobase/nexusfiles/treeWithSpecialCharacters.nex
 /usr/lib64/R/library/phylobase/nexusfiles/treeWithUnderscoreLabels.nex
+/usr/lib64/R/library/phylobase/tests/misctests.R
+/usr/lib64/R/library/phylobase/tests/phylo4dtests.R
+/usr/lib64/R/library/phylobase/tests/phylosubtest.R
+/usr/lib64/R/library/phylobase/tests/phylotorture.R
+/usr/lib64/R/library/phylobase/tests/plottest.R
+/usr/lib64/R/library/phylobase/tests/roundtrip.R
+/usr/lib64/R/library/phylobase/tests/test-all.R
+/usr/lib64/R/library/phylobase/tests/testprune.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.checkdata.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.class-phylo4.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.class-phylo4d.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.formatData.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.methods-oldclasses.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.methods-phylo4.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.pdata.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.phylo4.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.phylobase.options.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.prune.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.readNCL.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.setAs-Methods.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.subset.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.tbind.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.treePlot.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.treestruc.R
+/usr/lib64/R/library/phylobase/tests/testthat/test.treewalk.R
 
 %files lib
 %defattr(-,root,root,-)

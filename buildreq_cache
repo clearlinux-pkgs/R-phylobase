@@ -1,5 +1,11 @@
 0.8.6
 R-RNeXML
 R-ade4
+R-cli
+R-dplyr
+R-highr
+R-hms
+R-prettyunits
+R-progress
 R-rncl
 texlive
