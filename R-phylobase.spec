@@ -4,28 +4,46 @@
 #
 Name     : R-phylobase
 Version  : 0.8.6
-Release  : 11
+Release  : 12
 URL      : https://cran.r-project.org/src/contrib/phylobase_0.8.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/phylobase_0.8.6.tar.gz
 Summary  : Base Package for Phylogenetic Structures and Comparative Data
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-phylobase-lib = %{version}-%{release}
-Requires: R-cli
-Requires: R-dplyr
-Requires: R-highr
-Requires: R-hms
-Requires: R-prettyunits
-Requires: R-progress
+Requires: R-Rcpp
+Requires: R-XML
+Requires: R-ape
+Requires: R-glue
+Requires: R-lazyeval
+Requires: R-plyr
+Requires: R-reshape2
+Requires: R-tibble
+Requires: R-tidyr
+Requires: R-tidyselect
+Requires: R-uuid
+Requires: R-xml2
 BuildRequires : R-RNeXML
+BuildRequires : R-Rcpp
+BuildRequires : R-XML
 BuildRequires : R-ade4
+BuildRequires : R-ape
 BuildRequires : R-cli
 BuildRequires : R-dplyr
+BuildRequires : R-glue
 BuildRequires : R-highr
 BuildRequires : R-hms
+BuildRequires : R-lazyeval
+BuildRequires : R-plyr
 BuildRequires : R-prettyunits
 BuildRequires : R-progress
+BuildRequires : R-reshape2
 BuildRequires : R-rncl
+BuildRequires : R-tibble
+BuildRequires : R-tidyr
+BuildRequires : R-tidyselect
+BuildRequires : R-uuid
+BuildRequires : R-xml2
 BuildRequires : buildreq-R
 BuildRequires : texlive
 
@@ -48,10 +66,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552877590
+export SOURCE_DATE_EPOCH=1556478925
 
 %install
-export SOURCE_DATE_EPOCH=1552877590
+export SOURCE_DATE_EPOCH=1556478925
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -87,7 +105,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  phylobase || :
+R CMD check --no-manual --no-examples --no-codoc phylobase || :
 
 
 %files
