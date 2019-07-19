@@ -4,36 +4,38 @@
 #
 Name     : R-phylobase
 Version  : 0.8.6
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/phylobase_0.8.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/phylobase_0.8.6.tar.gz
 Summary  : Base Package for Phylogenetic Structures and Comparative Data
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-phylobase-lib = %{version}-%{release}
+Requires: R-RNeXML
+Requires: R-Rcpp
+Requires: R-XML
+Requires: R-ade4
+Requires: R-ape
+Requires: R-lazyeval
+Requires: R-progress
+Requires: R-reshape2
+Requires: R-rncl
+Requires: R-tidyr
+Requires: R-uuid
+Requires: R-xml2
 BuildRequires : R-RNeXML
 BuildRequires : R-Rcpp
 BuildRequires : R-XML
 BuildRequires : R-ade4
 BuildRequires : R-ape
-BuildRequires : R-cli
-BuildRequires : R-dplyr
-BuildRequires : R-glue
-BuildRequires : R-highr
-BuildRequires : R-hms
 BuildRequires : R-lazyeval
-BuildRequires : R-plyr
-BuildRequires : R-prettyunits
 BuildRequires : R-progress
 BuildRequires : R-reshape2
 BuildRequires : R-rncl
-BuildRequires : R-tibble
 BuildRequires : R-tidyr
-BuildRequires : R-tidyselect
 BuildRequires : R-uuid
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
-BuildRequires : texlive
 
 %description
 one or more trees and trait data.
@@ -53,13 +55,13 @@ lib components for the R-phylobase package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556479977
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1563570955
 
 %install
-export SOURCE_DATE_EPOCH=1556479977
+export SOURCE_DATE_EPOCH=1563570955
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -88,7 +90,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
