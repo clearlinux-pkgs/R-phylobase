@@ -4,7 +4,7 @@
 #
 Name     : R-phylobase
 Version  : 0.8.10
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/phylobase_0.8.10.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/phylobase_0.8.10.tar.gz
 Summary  : Base Package for Phylogenetic Structures and Comparative Data
@@ -36,21 +36,22 @@ lib components for the R-phylobase package.
 
 %prep
 %setup -q -c -n phylobase
+cd %{_builddir}/phylobase
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583166041
+export SOURCE_DATE_EPOCH=1589778594
 
 %install
-export SOURCE_DATE_EPOCH=1583166041
+export SOURCE_DATE_EPOCH=1589778594
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
