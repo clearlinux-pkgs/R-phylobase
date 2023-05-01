@@ -4,7 +4,7 @@
 #
 Name     : R-phylobase
 Version  : 0.8.10
-Release  : 41
+Release  : 42
 URL      : https://cran.r-project.org/src/contrib/phylobase_0.8.10.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/phylobase_0.8.10.tar.gz
 Summary  : Base Package for Phylogenetic Structures and Comparative Data
